@@ -1,0 +1,90 @@
+{
+  "profile": {
+    "name": "HyunSeob",
+    "domain": "hyunseob.me",
+    "bio": "NOT IDEAL, FYI",
+    "avatar": "https://avatars.githubusercontent.com/u/6940487?v=4",
+    "timezone": "Asia/Seoul",
+    "locationLabel": "SEOUL · KST"
+  },
+  "groups": [
+    {
+      "id": "channels",
+      "label": "CHANNELS",
+      "items": [
+        {
+          "title": "허드의 AI딸깍",
+          "subtitle": "youtube.com/@aiddgg",
+          "url": "https://www.youtube.com/@aiddgg",
+          "icon": "youtube",
+          "accent": "#ef4444",
+          "shortcut": "1",
+          "keywords": ["youtube", "video", "허드", "ai딸깍", "aiddgg", "유튜브"]
+        },
+        {
+          "title": "Instagram",
+          "subtitle": "@hey.hud.ai",
+          "url": "https://www.instagram.com/hey.hud.ai/",
+          "icon": "instagram",
+          "accent": "#ec4899",
+          "shortcut": "2",
+          "keywords": ["instagram", "ig", "hey.hud.ai", "인스타", "인스타그램"]
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "label": "SOCIAL & CODE",
+      "items": [
+        {
+          "title": "X (Twitter)",
+          "subtitle": "@HyunSeob_",
+          "url": "https://x.com/HyunSeob_",
+          "icon": "x",
+          "shortcut": "3",
+          "keywords": ["x", "twitter", "트위터", "hyunseob_"]
+        },
+        {
+          "title": "GitHub",
+          "subtitle": "github.com/HyunSeob",
+          "url": "https://github.com/HyunSeob",
+          "icon": "github",
+          "shortcut": "4",
+          "keywords": ["github", "code", "git", "깃허브", "hyunseob"]
+        },
+        {
+          "title": "LinkedIn",
+          "subtitle": "linkedin.com/in/hyunseob",
+          "url": "https://www.linkedin.com/in/hyunseob/",
+          "icon": "linkedin",
+          "accent": "#0a66c2",
+          "shortcut": "5",
+          "keywords": ["linkedin", "career", "링크드인", "resume"]
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "label": "WORK & CONTACT",
+      "items": [
+        {
+          "title": "NOT IDEAL",
+          "subtitle": "notideal.fyi",
+          "url": "https://notideal.fyi",
+          "icon": "globe",
+          "accent": "var(--accent)",
+          "shortcut": "6",
+          "keywords": ["not ideal", "studio", "project", "fyi"]
+        },
+        {
+          "title": "Email",
+          "subtitle": "mail@hyunseob.me",
+          "copy": "mail@hyunseob.me",
+          "icon": "mail",
+          "shortcut": "C",
+          "keywords": ["email", "mail", "contact", "copy", "이메일", "메일"]
+        }
+      ]
+    }
+  ]
+}
