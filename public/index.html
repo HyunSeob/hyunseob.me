@@ -464,9 +464,16 @@
     .foot-hints { display: flex; align-items: center; gap: 10px; }
     .hint { display: inline-flex; align-items: center; gap: 4px; }
 
+    .mobile-clock { display: none; }
+
     @media (max-width: 520px) {
       body { padding: 20px 12px; }
+      .header { padding: 15px 14px 13px; }
+      .search-bar { padding: 10px 14px; }
+      .search-input { font-size: 16px; }
       .clock-widget, .kbd-hide-mobile, .foot-hints { display: none; }
+      .mobile-clock { display: inline; }
+      .footer { padding: 10px 14px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -507,7 +514,7 @@
 
     <div class="search-bar">
       <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input id="search" class="search-input" type="text" placeholder="Type to filter links (e.g. youtube, linkedin, mail)..." autocomplete="off" />
+      <input id="search" class="search-input" type="text" placeholder="Filter links (youtube, linkedin, mail)..." autocomplete="off" />
       <span class="kbd kbd-hide-mobile">/</span>
     </div>
 
@@ -519,6 +526,7 @@
         <span class="hint"><span class="kbd">↵</span> open</span>
         <span class="hint"><span class="kbd">T</span> theme</span>
       </div>
+      <span class="mobile-clock" id="mobile-kst-time">SEOUL · --:--</span>
       <span id="footer-domain">hyunseob.me</span>
     </footer>
   </main>
@@ -606,11 +614,14 @@
 
     function startClock(tz) {
       const el = document.getElementById('kst-time');
+      const mobileEl = document.getElementById('mobile-kst-time');
       const tick = () => {
-        el.textContent = new Intl.DateTimeFormat('en-GB', {
+        const t = new Intl.DateTimeFormat('en-GB', {
           timeZone: tz || 'Asia/Seoul',
           hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
         }).format(new Date());
+        el.textContent = t;
+        if (mobileEl) mobileEl.textContent = `SEOUL · ${t}`;
       };
       tick();
       setInterval(tick, 1000);
