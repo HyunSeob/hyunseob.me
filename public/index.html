@@ -34,7 +34,8 @@
       --panel-bg: rgba(17, 17, 21, 0.9);
       --panel-border: rgba(255, 255, 255, 0.11);
       --panel-shadow: 0 32px 72px rgba(0, 0, 0, 0.62), inset 0 1px 0 rgba(255, 255, 255, 0.07);
-      --spotlight: rgba(129, 140, 248, 0.085);
+      --spotlight: rgba(129, 140, 248, 0.22);
+      --spotlight-core: rgba(56, 189, 248, 0.12);
       --divider: rgba(255, 255, 255, 0.075);
       --text-primary: #f4f4f5;
       --text-secondary: #a1a1aa;
@@ -59,7 +60,8 @@
       --panel-bg: rgba(255, 255, 255, 0.94);
       --panel-border: rgba(24, 24, 27, 0.11);
       --panel-shadow: 0 24px 56px rgba(24, 24, 27, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.95);
-      --spotlight: rgba(79, 70, 229, 0.06);
+      --spotlight: rgba(79, 70, 229, 0.14);
+      --spotlight-core: rgba(14, 165, 233, 0.08);
       --divider: rgba(24, 24, 27, 0.08);
       --text-primary: #18181b;
       --text-secondary: #52525b;
@@ -140,8 +142,15 @@
       inset: 0;
       pointer-events: none;
       opacity: 0;
-      background: radial-gradient(380px circle at var(--mx) var(--my), var(--spotlight), transparent 65%);
-      transition: opacity 260ms ease;
+      background:
+        radial-gradient(220px circle at var(--mx) var(--my), var(--spotlight-core), transparent 65%),
+        radial-gradient(420px circle at var(--mx) var(--my), var(--spotlight), transparent 70%);
+      transition: opacity 220ms ease;
+      z-index: 2;
+      mix-blend-mode: screen;
+    }
+    [data-theme="light"] .palette::before {
+      mix-blend-mode: normal;
       z-index: 0;
     }
     .palette:hover::before {
