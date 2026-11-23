@@ -632,6 +632,19 @@
       setTimeout(() => el.classList.remove('pressed'), 160);
     }
 
+    function trackEvent(payload) {
+      if (location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
+      const body = JSON.stringify({ ...payload, ref: document.referrer || '' });
+      try {
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon('/api/event', new Blob([body], { type: 'application/json' }));
+          return;
+        }
+      } catch {}
+      fetch('/api/event', { method: 'POST', headers: { 'content-type': 'application/json' }, body, keepalive: true }).catch(() => {});
+    }
+    trackEvent({ kind: 'view' });
+
     function render(data) {
       const p = data.profile;
       document.getElementById('name').textContent = p.name;
@@ -691,10 +704,15 @@
 
           if (isCopy) {
             el.addEventListener('click', () => {
+              trackEvent({ kind: 'click', target: item.title, url: 'copy:' + item.copy });
               if (navigator.clipboard) navigator.clipboard.writeText(item.copy).catch(() => {});
               const pill = el.querySelector('.copied-pill');
               pill.classList.add('show');
               setTimeout(() => pill.classList.remove('show'), 1400);
+            });
+          } else {
+            el.addEventListener('click', () => {
+              trackEvent({ kind: 'click', target: item.title, url: item.url });
             });
           }
 

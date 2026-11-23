@@ -1,10 +1,12 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "hyunseob-me",
+  "main": "src/worker.js",
   "compatibility_date": "2026-11-23",
   "workers_dev": true,
   "assets": {
-    "directory": "./public"
+    "directory": "./public",
+    "binding": "ASSETS"
   },
   "routes": [
     {
@@ -14,6 +16,13 @@
     {
       "pattern": "www.hyunseob.me",
       "custom_domain": true
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "slate",
+      "database_id": "00f837ca-1815-4cab-adbf-7bb58367ac0b"
     }
   ]
 }
